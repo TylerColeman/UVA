@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<iomanip>
 using namespace std;
 
 int main()
@@ -13,15 +14,12 @@ int main()
     vector<int> goodGrades;
     avg = 0;
     cin >> students;
+
     for(int j = 0; j < students; j++)
     {
       cin >> grade;
+	  avg += grade;
       grades.push_back(grade);
-    }
-    
-    for(int k = 0; k < grades.size(); k++)
-    {
-      avg += grades[k];
     }
     avg /= grades.size();
     
@@ -32,9 +30,9 @@ int main()
         goodGrades.push_back(grades[z]);
       }
     }
-    percent = goodGrades.size() / grades.size() * 100;
+    percent = ((double)goodGrades.size() / (double)grades.size()) * 100;
     
-    cout << percent << endl;
+    cout << fixed << setprecision(3) << percent << "%" << endl;
     
   }
   return 0;
